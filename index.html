@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>江苏省公务员与选调生报名链接（汇总）</title>
+  <style>
+    :root{font-family: system-ui, -apple-system, "Segoe UI", Roboto, "PingFang SC", "Hiragino Sans GB", "Microsoft Yahei", "Helvetica Neue", Arial;}
+    body{margin:0;padding:24px;background:#f6f8fb;color:#111}
+    .container{max-width:980px;margin:0 auto;background:#fff;padding:20px;border-radius:10px;box-shadow:0 6px 20px rgba(16,24,40,.08)}
+    h1{font-size:20px;margin:0 0 8px}
+    p.lead{color:#556; margin:0 0 16px}
+    .controls{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
+    input.search{flex:1;padding:8px 12px;border:1px solid #e3e7ef;border-radius:8px;font-size:14px}
+    button,.btn{padding:8px 12px;border-radius:8px;border:0;background:#2563eb;color:#fff;font-weight:600;cursor:pointer}
+    button.ghost{background:#fff;border:1px solid #e3e7ef;color:#111}
+    table{width:100%;border-collapse:collapse;margin-top:8px}
+    th,td{padding:10px 8px;text-align:left;border-bottom:1px solid #f0f2f5;font-size:14px}
+    th{color:#556;font-weight:600}
+    td.actions{white-space:nowrap}
+    a.link{color:#0b63ff;text-decoration:none;font-weight:600}
+    .small{font-size:12px;color:#666}
+    .group{margin-top:16px}
+    .note{margin-top:12px;font-size:13px;color:#666}
+    @media (max-width:640px){.controls{flex-direction:column}.actions button{margin-top:6px}}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>江苏省公务员与选调生报名链接（汇总）</h1>
+
+    <div class="controls">
+      <input id="q" class="search" placeholder="搜索城市名，例如：南京 / 选调生" oninput="filter()" />
+      <button class="btn" onclick="openAll()" title="在新标签页打开全部可见链接">全部在新标签页打开</button>
+      <button class="ghost" onclick="copyVisible()">复制可见链接</button>
+    </div>
+
+    <table id="linksTable" aria-label="报名链接表">
+      <thead>
+        <tr><th>地点</th><th>说明</th><th>操作</th></tr>
+      </thead>
+      <tbody>
+        <tr data-city="南京"><td>南京</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(0)">打开</button> <button onclick="copyLink(0)">复制</button></td></tr>
+        <tr data-city="无锡"><td>无锡</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(1)">打开</button> <button onclick="copyLink(1)">复制</button></td></tr>
+        <tr data-city="徐州"><td>徐州</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(2)">打开</button> <button onclick="copyLink(2)">复制</button></td></tr>
+        <tr data-city="常州"><td>常州</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(3)">打开</button> <button onclick="copyLink(3)">复制</button></td></tr>
+        <tr data-city="苏州"><td>苏州</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(4)">打开</button> <button onclick="copyLink(4)">复制</button></td></tr>
+        <tr data-city="南通"><td>南通</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(5)">打开</button> <button onclick="copyLink(5)">复制</button></td></tr>
+        <tr data-city="连云港"><td>连云港</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(6)">打开</button> <button onclick="copyLink(6)">复制</button></td></tr>
+        <tr data-city="淮安"><td>淮安</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(7)">打开</button> <button onclick="copyLink(7)">复制</button></td></tr>
+        <tr data-city="盐城"><td>盐城</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(8)">打开</button> <button onclick="copyLink(8)">复制</button></td></tr>
+        <tr data-city="扬州"><td>扬州</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(9)">打开</button> <button onclick="copyLink(9)">复制</button></td></tr>
+        <tr data-city="镇江"><td>镇江</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(10)">打开</button> <button onclick="copyLink(10)">复制</button></td></tr>
+        <tr data-city="泰州"><td>泰州</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(11)">打开</button> <button onclick="copyLink(11)">复制</button></td></tr>
+        <tr data-city="宿迁"><td>宿迁</td><td class="small">市级报名入口</td><td class="actions"><button onclick="openLink(12)">打开</button> <button onclick="copyLink(12)">复制</button></td></tr>
+        <tr data-city="乡镇选调生"><td>乡镇选调生</td><td class="small">乡镇/基层选调生报名入口</td><td class="actions"><button onclick="openLink(13)">打开</button> <button onclick="copyLink(13)">复制</button></td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <script>
+    // 原始链接数组（安全地放在脚本内以便复制/打开）
+    const urls = [
+      "http://218.94.85.11:8000/Home/ExamHome?examid=00251020145435",
+      "https://rs.hrss.wuxi.gov.cn:8026/Home/ExamHome?examid=00251020145435",
+      "http://218.3.167.180:8001/Home/ExamHome?examid=00251020145435",
+      "http://czks.czrsj.cn:8008/Home/ExamHome?examid=00251020145435",
+      "http://58.210.143.5:8001/Home/ExamHome?examid=00251020145435",
+      "https://wsbm.rsj.nantong.gov.cn/Home/ExamHome?examid=00251020145435",
+      "http://bm.rsj.lyg.gov.cn/Home/ExamHome?examid=00251020145435",
+      "http://180.100.74.97:8001/Home/ExamHome?examid=00251020145435",
+      "http://221.231.11.120:8001/Home/ExamHome?examid=00251020145435",
+      "http://58.220.130.171:8001/Home/ExamHome?examid=00251020145435",
+      "http://ks.zjrsks.cn/Home/ExamHome?examid=00251020145435",
+      "https://tzgwy.tzrsks.com/Home/ExamHome?examid=00251020145435",
+      "http://222.187.200.202:8001/Home/ExamHome?examid=00251020145435",
+      "http://222.190.114.117:8089/Home/ExamHome?examid=00251021163047"
+    ];
+
+    function openLink(i){ window.open(urls[i], '_blank', 'noopener'); }
+    function copyLink(i){ navigator.clipboard.writeText(urls[i]).then(()=>{ alert('已复制：' + urls[i]); }).catch(()=>{ prompt('复制失败，请手动复制：', urls[i]); }); }
+
+    function filter(){
+      const q = document.getElementById('q').value.trim().toLowerCase();
+      const rows = document.querySelectorAll('#linksTable tbody tr');
+      rows.forEach((r, idx)=>{
+        const city = r.getAttribute('data-city') || '';
+        const text = (city + ' ' + r.innerText).toLowerCase();
+        if(!q || text.indexOf(q) !== -1){ r.style.display = ''; r.dataset.visible = '1'; } else { r.style.display = 'none'; r.dataset.visible = '0'; }
+      });
+    }
+
+    function openAll(){
+      const rows = document.querySelectorAll('#linksTable tbody tr');
+      let opened = 0;
+      rows.forEach((r, idx)=>{
+        if(r.style.display === 'none') return;
+        window.open(urls[idx], '_blank', 'noopener'); opened++;
+      });
+      if(opened===0) alert('未找到可见链接，请先清除搜索或更改关键词。');
+    }
+
+    function copyVisible(){
+      const rows = document.querySelectorAll('#linksTable tbody tr');
+      const list = [];
+      rows.forEach((r, idx)=>{ if(r.style.display !== 'none') list.push(urls[idx]); });
+      if(list.length===0){ alert('没有可见链接可复制。'); return; }
+      const text = list.join('\n');
+      navigator.clipboard.writeText(text).then(()=>{ alert('已复制 ' + list.length + ' 个链接到剪贴板。'); }).catch(()=>{ prompt('复制失败，请手动复制：', text); });
+    }
+
+    // 初始筛选（空）
+    filter();
+  </script>
+</body>
+</html>
